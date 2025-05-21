@@ -41,8 +41,7 @@ class DocenteNoTraslapadoHandlerTestCase(unittest.TestCase):
         docente = get_docente_by_id(self.docentes, "D001")
         nombre = f"{docente['nombre']} {docente['apellido']}" if docente else "Unknown"
         if result is not None:
-            print("")
-            print(result)
+            print(f"\n{result}")
         self.assertIsInstance(result, str)
         self.assertIn(nombre, result)
 
