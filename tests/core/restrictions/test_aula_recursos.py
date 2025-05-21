@@ -63,7 +63,7 @@ class AulaDebeTenerRecursosHandlerTestCase(unittest.TestCase):
             "recursos": self.recursos
         }
         result = self.handler.validate(context)
-        print(result)
+        print(f"\n{result}")
         self.assertIsInstance(result, str)
         self.assertIn("falta", result.lower() or "faltante" in result.lower())
         self.assertIn("Video Beam", result)  # R001 es Video Beam
@@ -107,7 +107,7 @@ class AulaDebeTenerRecursosHandlerTestCase(unittest.TestCase):
             # No se pasan los recursos para nombres
         }
         result = self.handler.validate(context)
-        print("Mensaje con IDs:", result)
+        print(f"\nMensaje con IDs:", result)
         self.assertIsInstance(result, str)
         self.assertIn("R003", result)
 
