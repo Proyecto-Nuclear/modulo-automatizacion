@@ -17,7 +17,7 @@ jobs:
       (github.event_name == 'pull_request' || github.actor == 'Maicol-19ty')
     steps:
       - name: Checkout repo
-        uses: actions/setup-python@v4
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
