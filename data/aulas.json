@@ -1,0 +1,35 @@
+[
+  {
+    "id": "AU001",
+    "nombre": "Aula 101",
+    "estado": "disponible",
+    "codigo": "A101",
+    "descripcion": "Aula teórica principal",
+    "tipo": "Teorica",
+    "capacidad": 40,
+    "id_sede": "S001",
+    "id_recursos": ["R001", "R002"]
+  },
+  {
+    "id": "AU002",
+    "nombre": "Lab Computo 1",
+    "estado": "disponible",
+    "codigo": "L101",
+    "descripcion": "Laboratorio de sistemas",
+    "tipo": "laboratorio",
+    "capacidad": 25,
+    "id_sede": "S001",
+    "id_recursos": ["R003"]
+  },
+  {
+    "id": "AU003",
+    "nombre": "Aula 201",
+    "estado": "disponible",
+    "codigo": "A201",
+    "descripcion": "Aula híbrida para clases mixtas",
+    "tipo": "hibrida",
+    "capacidad": 35,
+    "id_sede": "S002",
+    "id_recursos": ["R001", "R004"]
+  }
+]

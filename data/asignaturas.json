@@ -1,0 +1,32 @@
+[
+  {
+    "id": "A001",
+    "nombre": "Álgebra Lineal",
+    "estado": "activa",
+    "duracion": "6 meses",
+    "semestre": 1,
+    "creditos": 4,
+    "descripcion": "Introducción a álgebra lineal para ingenierías",
+    "requiereRecursos": ["R003"]
+  },
+  {
+    "id": "A002",
+    "nombre": "Física I",
+    "estado": "activa",
+    "duracion": "6 meses",
+    "semestre": 1,
+    "creditos": 4,
+    "descripcion": "Conceptos básicos de física mecánica",
+    "requiereRecursos": ["R003"]
+  },
+  {
+    "id": "A003",
+    "nombre": "Estructura de Datos",
+    "estado": "activa",
+    "duracion": "3 meses",
+    "semestre": 2,
+    "creditos": 3,
+    "descripcion": "Fundamentos de estructuras de datos para programación",
+    "requiereRecursos": ["R001", "R003"]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "D001",
+    "nombre": "Laura",
+    "apellido": "García",
+    "email": "laura.garcia@universidad.edu",
+    "celular": "3201234567",
+    "cedula_ciudadania": "1002003001",
+    "area_especialidad": "Matemáticas",
+    "preferencias": ["mañana", "semestre_1"]
+  },
+  {
+    "id": "D002",
+    "nombre": "Carlos",
+    "apellido": "Martínez",
+    "email": "carlos.martinez@universidad.edu",
+    "celular": "3109876543",
+    "cedula_ciudadania": "1002003002",
+    "area_especialidad": "Física",
+    "preferencias": ["tarde", "laboratorio"]
+  },
+  {
+    "id": "D003",
+    "nombre": "Ana",
+    "apellido": "Ruiz",
+    "email": "ana.ruiz@universidad.edu",
+    "celular": "3151112222",
+    "cedula_ciudadania": "1002003003",
+    "area_especialidad": "Sistemas",
+    "preferencias": ["hibrida", "semestre_2"]
+  }
+]

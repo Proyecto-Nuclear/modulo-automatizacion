@@ -1,0 +1,22 @@
+[
+  {
+    "id": "S001",
+    "nombre": "Sede Principal",
+    "estado": "activa",
+    "direccion": "Calle 12 #34-56",
+    "telefono": "6011112233",
+    "cantidad_aulas": 6,
+    "ciudad": "Armenia",
+    "departamento": "Quindío"
+  },
+  {
+    "id": "S002",
+    "nombre": "Sede Nogales",
+    "estado": "activa",
+    "direccion": "Avenida 45 #67-89",
+    "telefono": "6014445566",
+    "cantidad_aulas": 4,
+    "ciudad": "Armenia",
+    "departamento": "Quindío"
+  }
+]
