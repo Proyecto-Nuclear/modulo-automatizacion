@@ -28,5 +28,15 @@
     "creditos": 3,
     "descripcion": "Fundamentos de estructuras de datos para programación",
     "requiereRecursos": ["R001", "R003"]
+  },
+  {
+    "id": "A004",
+    "nombre": "Algoritmos y Lógica Computacional",
+    "estado": "activa",
+    "duracion": "6 meses",
+    "semestre": 1,
+    "creditos": 3,
+    "descripcion": "Fundamentos de algoritmos y lógica computacional",
+    "requiereRecursos": ["R001", "R002", "R003"]
   }
 ]
