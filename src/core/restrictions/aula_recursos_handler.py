@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional, Any
+from typing import Dict, Optional, Any
 from .restriction_handler import RestrictionHandler
 
 class AulaRecursosHandler(RestrictionHandler):
