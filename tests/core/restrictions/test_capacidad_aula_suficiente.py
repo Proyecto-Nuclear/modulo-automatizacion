@@ -87,7 +87,7 @@ class CapacidadAulaSuficienteHandlerTestCase(unittest.TestCase):
             "aulas": self.aulas
         }
         result = self.handler.validate(context)
-        print(result)
+        print(f"\n{result}")
         self.assertIsInstance(result, str)
         self.assertIn("no se proporcionó", result.lower())
 
