@@ -97,7 +97,7 @@ class AulaDebeTenerRecursosHandlerTestCase(unittest.TestCase):
 
     def test_recursos_faltantes_por_id(self):
         """
-        Si no se pasan los nombres de los recursos, igual debe funcionar mostrando los IDs faltantes.
+        Si no se pasan los nombres de los recursos, igual debe funcionar mostrando los ID faltantes.
         """
         asignatura = next(a for a in self.asignaturas if a["id"] == "A003")
         aula = next(a for a in self.aulas if a["id"] == "AU001")
@@ -107,7 +107,7 @@ class AulaDebeTenerRecursosHandlerTestCase(unittest.TestCase):
             # No se pasan los recursos para nombres
         }
         result = self.handler.validate(context)
-        print(f"\nMensaje con IDs:", result)
+        print("\nMensaje con IDs:", result)
         self.assertIsInstance(result, str)
         self.assertIn("R003", result)
 
