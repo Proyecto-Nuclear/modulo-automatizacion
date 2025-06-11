@@ -2,7 +2,7 @@ import unittest
 import json
 import os
 
-from src.core.restrictions.docente_no_traslapado_handler import DocenteNoTraslapadoHandler
+from src.core.restrictions.docente.docente_no_traslapado_handler import DocenteNoTraslapadoHandler
 
 def load_json(filename):
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +19,7 @@ class DocenteNoTraslapadoHandlerTestCase(unittest.TestCase):
         self.handler = DocenteNoTraslapadoHandler()
 
     def test_docente_no_traslapado_conflicto(self):
-        """Superposición de horarios para el mismo docente: debe ser inválido (conflicto)."""
+        """Superposición de schedules para el mismo docente: debe ser inválido (conflicto)."""
         context = {
             "schedule": [
                 {

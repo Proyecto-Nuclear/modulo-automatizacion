@@ -1,5 +1,5 @@
 import unittest
-from src.core.restrictions.integridad_entidades_handler import IntegridadEntidadesHandler
+from src.core.restrictions.integridad.integridad_entidades_handler import IntegridadEntidadesHandler
 
 class IntegridadEntidadesHandlerTestCase(unittest.TestCase):
     def setUp(self):

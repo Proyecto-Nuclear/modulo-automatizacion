@@ -2,7 +2,7 @@ import os
 import unittest
 import json
 
-from src.core.horarios.selector_factory import get_horario_factory
+from src.core.schedules.selector_factory import get_horario_factory
 
 def load_json(filename):
     base_dir = os.path.dirname(os.path.abspath(__file__))

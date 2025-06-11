@@ -2,7 +2,7 @@ import unittest
 import json
 import os
 
-from src.core.restrictions.aula_recursos_handler import AulaRecursosHandler
+from src.core.restrictions.aulas.aula_recursos_handler import AulaRecursosHandler
 
 def load_json(filename):
     """Helper to load JSON from the data directory."""

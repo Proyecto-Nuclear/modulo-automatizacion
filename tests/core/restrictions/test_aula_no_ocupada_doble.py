@@ -1,6 +1,6 @@
 import unittest
 
-from src.core.restrictions.aula_no_ocupada_doble_handler import AulaNoOcupadaDobleHandler
+from src.core.restrictions.aulas.aula_no_ocupada_doble_handler import AulaNoOcupadaDobleHandler
 
 class AulaNoOcupadaDobleHandlerTestCase(unittest.TestCase):
     def setUp(self):
@@ -8,11 +8,11 @@ class AulaNoOcupadaDobleHandlerTestCase(unittest.TestCase):
 
     def test_aula_sin_solapamiento(self):
         """
-        No hay solapamiento de horarios en la misma aula.
+        No hay solapamiento de schedules en la misma aula.
         Debe retornar None (válido).
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "08:00", "end_time": "10:00"},
                 {"id": "H2", "aula": "AU001", "start_time": "10:00", "end_time": "12:00"},
                 {"id": "H3", "aula": "AU002", "start_time": "09:00", "end_time": "11:00"}
@@ -25,11 +25,11 @@ class AulaNoOcupadaDobleHandlerTestCase(unittest.TestCase):
 
     def test_aula_con_solapamiento(self):
         """
-        Hay solapamiento de horarios en la misma aula.
+        Hay solapamiento de schedules en la misma aula.
         Debe retornar mensaje de error.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "08:00", "end_time": "10:00"},
                 {"id": "H2", "aula": "AU001", "start_time": "09:00", "end_time": "11:00"},  # solapa con H1
                 {"id": "H3", "aula": "AU002", "start_time": "09:00", "end_time": "11:00"}
@@ -48,7 +48,7 @@ class AulaNoOcupadaDobleHandlerTestCase(unittest.TestCase):
         Debe retornar None.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "08:00", "end_time": "10:00"},
                 {"id": "H2", "aula": "AU002", "start_time": "08:00", "end_time": "10:00"}
             ]
@@ -60,10 +60,10 @@ class AulaNoOcupadaDobleHandlerTestCase(unittest.TestCase):
 
     def test_mismo_horario_misma_aula_misma_clase(self):
         """
-        Si es exactamente la misma clase (mismo id), no debe reportar error aunque los horarios sean iguales.
+        Si es exactamente la misma clase (mismo id), no debe reportar error aunque los schedules sean iguales.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "08:00", "end_time": "10:00"},
                 {"id": "H1", "aula": "AU001", "start_time": "08:00", "end_time": "10:00"}
             ]
@@ -78,7 +78,7 @@ class AulaNoOcupadaDobleHandlerTestCase(unittest.TestCase):
         Solapamiento en horario, pero en aulas diferentes es válido.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "09:00", "end_time": "11:00"},
                 {"id": "H2", "aula": "AU002", "start_time": "10:00", "end_time": "12:00"}
             ]

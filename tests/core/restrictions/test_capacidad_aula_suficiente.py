@@ -2,7 +2,7 @@ import unittest
 import json
 import os
 
-from src.core.restrictions.capacidad_aula_suficiente_handler import CapacidadAulaSuficienteHandler
+from src.core.restrictions.aulas.capacidad_aula_suficiente_handler import CapacidadAulaSuficienteHandler
 
 def load_json(filename):
     """Helper to load JSON from the data directory."""
@@ -83,6 +83,7 @@ class CapacidadAulaSuficienteHandlerTestCase(unittest.TestCase):
         aula = next(a for a in self.aulas if a["id"] == "AU001")
         context = {
             "aula": aula,
+            "numero_estudiantes": 40,
             "asignatura": asignatura,
             "aulas": self.aulas
         }

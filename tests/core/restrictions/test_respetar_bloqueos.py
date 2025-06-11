@@ -1,5 +1,5 @@
 import unittest
-from src.core.restrictions.respetar_bloqueos_handler import RespetarBloqueosHandler
+from src.core.restrictions.horarios.respetar_bloqueos_handler import RespetarBloqueosHandler
 
 class RespetarBloqueosHandlerTestCase(unittest.TestCase):
     def setUp(self):
@@ -11,7 +11,7 @@ class RespetarBloqueosHandlerTestCase(unittest.TestCase):
         Debe retornar None (válido).
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "08:00", "end_time": "10:00"}
             ],
             "bloqueos": [
@@ -29,7 +29,7 @@ class RespetarBloqueosHandlerTestCase(unittest.TestCase):
         Debe retornar mensaje de error.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "09:00", "end_time": "11:00"}
             ],
             "bloqueos": [
@@ -49,7 +49,7 @@ class RespetarBloqueosHandlerTestCase(unittest.TestCase):
         Debe retornar None.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU002", "start_time": "09:00", "end_time": "11:00"}
             ],
             "bloqueos": [
@@ -63,11 +63,11 @@ class RespetarBloqueosHandlerTestCase(unittest.TestCase):
 
     def test_varios_horarios_y_bloqueos(self):
         """
-        Varios horarios y bloqueos, uno solapa.
+        Varios schedules y bloqueos, uno solapa.
         Debe retornar mensaje de error por el que solapa.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU001", "start_time": "07:00", "end_time": "09:00"},
                 {"id": "H2", "aula": "AU001", "start_time": "10:00", "end_time": "12:00"},
                 {"id": "H3", "aula": "AU002", "start_time": "08:00", "end_time": "10:00"},
@@ -91,7 +91,7 @@ class RespetarBloqueosHandlerTestCase(unittest.TestCase):
         Debe retornar None.
         """
         context = {
-            "horarios": [
+            "schedules": [
                 {"id": "H1", "aula": "AU003", "start_time": "08:00", "end_time": "10:00"}
             ],
             "bloqueos": [
