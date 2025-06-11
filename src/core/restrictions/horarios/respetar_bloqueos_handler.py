@@ -1,5 +1,5 @@
 from typing import List, Dict, Optional, Any
-from .restriction_handler import RestrictionHandler
+from src.core.restrictions.restriction_handler import RestrictionHandler
 
 class RespetarBloqueosHandler(RestrictionHandler):
     """
@@ -11,11 +11,11 @@ class RespetarBloqueosHandler(RestrictionHandler):
         Verifica que ningún horario asignado a un aula se solape con un bloqueo de esa aula.
 
         :param context: Dict con las claves:
-            - 'horarios': List[Dict], cada dict representa un horario con 'id', 'aula', 'horaInicio', 'horaFin'
+            - 'schedules': List[Dict], cada dict representa un horario con 'id', 'aula', 'horaInicio', 'horaFin'
             - 'bloqueos': List[Dict], cada dict representa un bloqueo con 'aula', 'horario' (dict con 'horaInicio', 'horaFin')
         :return: None si es válido, mensaje de error (str) si algún horario coincide con un bloqueo.
         """
-        horarios: List[Dict] = context.get("horarios", [])
+        horarios: List[Dict] = context.get("", [])
         bloqueos: List[Dict] = context.get("bloqueos", [])
         errores = []
 

@@ -1,5 +1,5 @@
 from typing import Dict, Optional, Any
-from .restriction_handler import RestrictionHandler
+from src.core.restrictions.restriction_handler import RestrictionHandler
 
 class AulaRecursosHandler(RestrictionHandler):
     """

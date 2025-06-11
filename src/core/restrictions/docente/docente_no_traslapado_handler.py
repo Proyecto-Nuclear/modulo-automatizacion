@@ -1,9 +1,9 @@
 from typing import List, Dict, Optional, Any
-from .restriction_handler import RestrictionHandler
+from src.core.restrictions.restriction_handler import RestrictionHandler
 
 class DocenteNoTraslapadoHandler(RestrictionHandler):
     """
-    Restricción: Un profesor no puede tener dos clases asignadas al mismo tiempo (sin superposición de horarios).
+    Restricción: Un profesor no puede tener dos clases asignadas al mismo tiempo (sin superposición de schedules).
     """
 
     def validate(self, context: Dict[str, Any]) -> Optional[str]:
@@ -11,10 +11,10 @@ class DocenteNoTraslapadoHandler(RestrictionHandler):
         Verifica que un docente no tenga dos clases asignadas que se traslapen en el mismo horario.
 
         :param context: Dict con las claves:
-            - 'schedule': Lista de dicts con los horarios ya asignados, cada uno incluyendo al menos 'docente_id', 'date', 'start_time', y 'end_time'.
+            - 'schedule': Lista de dicts con los schedules ya asignados, cada uno incluyendo al menos 'docente_id', 'date', 'start_time', y 'end_time'.
             - 'new_schedule': Dict con los datos del nuevo horario a asignar, incluyendo las mismas claves.
             - 'docentes': (Opcional) Lista de dicts con los datos de los docentes, para mostrar el nombre en el mensaje de error.
-        :return: None si es válido, mensaje de error (str) si el docente tiene traslape de horarios.
+        :return: None si es válido, mensaje de error (str) si el docente tiene traslape de schedules.
         """
         schedules: List[Dict] = context["schedule"]
         new_schedule: Dict = context["new_schedule"]

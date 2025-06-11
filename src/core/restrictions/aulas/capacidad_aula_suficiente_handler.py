@@ -1,5 +1,5 @@
 from typing import List, Dict, Optional, Any
-from .restriction_handler import RestrictionHandler
+from src.core.restrictions.restriction_handler import RestrictionHandler
 
 class CapacidadAulaSuficienteHandler(RestrictionHandler):
     """
@@ -21,7 +21,7 @@ class CapacidadAulaSuficienteHandler(RestrictionHandler):
         aula: Dict = context["aula"]
         capacidad_aula = aula.get("capacidad", 0)
         numero_estudiantes = context.get("numero_estudiantes")
-        aulas: List[Dict] = context.get("aulas", [])
+        aulas: List[Dict] = context.get("", [])
         asignatura = context.get("asignatura", {}).get("nombre", "Asignatura desconocida")
 
         if numero_estudiantes is None:

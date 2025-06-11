@@ -1,5 +1,5 @@
 from typing import Dict, Any, Optional
-from .restriction_handler import RestrictionHandler
+from src.core.restrictions.restriction_handler import RestrictionHandler
 
 class IntegridadEntidadesHandler(RestrictionHandler):
     """
@@ -19,7 +19,7 @@ class IntegridadEntidadesHandler(RestrictionHandler):
         """
         entidades = [
             ('aula', context.get('aula', {})),
-            ('docente', context.get('docente', {})),
+            ('docente', context.get('../docente', {})),
             ('asignatura', context.get('asignatura', {})),
             ('sede', context.get('sede', {}))
         ]
