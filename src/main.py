@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from .api import router
 from fastapi.middleware.cors import CORSMiddleware
+
+from src.api import router
 
 app = FastAPI(
     title="Modulo Automatización",
@@ -8,7 +9,7 @@ app = FastAPI(
     version="0.0.1",
 )
 
-app.include_router(router)
+app.include_router(router, prefix="/api/v1", tags=["horarios"])
 
 app.add_middleware(
     CORSMiddleware,
