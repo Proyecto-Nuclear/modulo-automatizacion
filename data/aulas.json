@@ -5,7 +5,7 @@
     "estado": "disponible",
     "codigo": "A101",
     "descripcion": "Aula teórica principal",
-    "tipo": "Teorica",
+    "tipo": "teorica",
     "capacidad": 40,
     "id_sede": "S001",
     "id_recursos": ["R001", "R002"]

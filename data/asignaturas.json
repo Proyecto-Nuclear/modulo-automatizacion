@@ -7,7 +7,8 @@
     "semestre": 1,
     "creditos": 4,
     "descripcion": "Introducción a álgebra lineal para ingenierías",
-    "requiereRecursos": ["R003"]
+    "requiereRecursos": ["R003"],
+    "tipo": "teorica"
   },
   {
     "id": "A002",
@@ -17,7 +18,8 @@
     "semestre": 1,
     "creditos": 4,
     "descripcion": "Conceptos básicos de física mecánica",
-    "requiereRecursos": ["R003"]
+    "requiereRecursos": ["R003"],
+    "tipo": "hibrida"
   },
   {
     "id": "A003",
@@ -27,7 +29,8 @@
     "semestre": 2,
     "creditos": 3,
     "descripcion": "Fundamentos de estructuras de datos para programación",
-    "requiereRecursos": ["R001", "R003"]
+    "requiereRecursos": ["R001", "R003"],
+    "tipo": "teorica"
   },
   {
     "id": "A004",
@@ -37,6 +40,7 @@
     "semestre": 1,
     "creditos": 3,
     "descripcion": "Fundamentos de algoritmos y lógica computacional",
-    "requiereRecursos": ["R001", "R002", "R003"]
+    "requiereRecursos": ["R001", "R002", "R003"],
+    "tipo": "laboratorio"
   }
 ]
