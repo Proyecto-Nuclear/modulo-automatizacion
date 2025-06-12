@@ -10,7 +10,9 @@ class AulaCompatibleHandler(RestrictionHandler):
     """
 
     def validate(self, context: Dict[str, Any]) -> Optional[str]:
-        return ValidadorCompatibilidad.validar(context)
+        validator = ValidadorCompatibilidad()
+        return validator.validar(context)
 
     def get_aulas_compatibles(self, context: Dict[str, Any]) -> List[Dict]:
-        return BuscadorAulasCompatibles.get_aulas_compatibles(context)
+        buscador = BuscadorAulasCompatibles()
+        return buscador.get_aulas_compatibles(context)
