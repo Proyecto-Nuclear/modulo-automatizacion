@@ -11,7 +11,7 @@ class ValidadorRecursos:
         """
         Valida que un aula tenga todos los recursos requeridos por una asignatura.
         """
-        aula_recursos = set(aula.get("id_recursos", []) or aula.get("recursos", []))
+        aula_recursos = set(aula["id_recursos"] if "id_recursos" in aula else aula.get("recursos", []))
         requiere_recursos = set(asignatura.get("requiereRecursos", []) or asignatura.get("recursos_requeridos", []))
 
         if not requiere_recursos:
