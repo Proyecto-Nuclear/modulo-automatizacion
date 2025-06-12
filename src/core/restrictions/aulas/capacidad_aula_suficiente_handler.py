@@ -12,6 +12,7 @@ class CapacidadAulaSuficienteHandler(RestrictionHandler):
     """
 
     def __init__(self):
+        super().__init__()
         self.validador_individual = ValidadorIndividualCapacidad()
         self.validador_global = ValidadorGlobalCapacidad()
         self.validador_directo = ValidadorDirectoCapacidad()

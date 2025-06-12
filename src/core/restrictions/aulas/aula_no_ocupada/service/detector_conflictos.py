@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional
 from .time_utils import horarios_solapan
 from .validador_estructura_bloque import ValidadorEstructuraBloque
 

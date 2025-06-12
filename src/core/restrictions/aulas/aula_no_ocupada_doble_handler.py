@@ -15,6 +15,7 @@ class AulaNoOcupadaDobleHandler(RestrictionHandler):
     """
 
     def __init__(self):
+        super().__init__()
         self.validador_individual = ValidadorIndividual()
         self.validador_global = ValidadorGlobal()
         self.buscador_aulas = BuscadorAulasDisponibles()
