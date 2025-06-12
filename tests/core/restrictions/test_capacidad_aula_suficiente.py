@@ -57,7 +57,7 @@ class CapacidadAulaSuficienteHandlerTestCase(unittest.TestCase):
         Debe retornar un mensaje de error y recomendar aulas con capacidad suficiente.
         """
         asignatura = next(a for a in self.asignaturas if a["id"] == "A001")
-        aula = next(a for a in self.aulas if a["id"] == "AU003")  # Aula 201, capacidad 35
+        aula = next(a for a in self.aulas if a["id"] == "AU004")  # Aula 201, capacidad 35
         context = {
             "aula": aula,
             "numero_estudiantes": 40,
@@ -118,7 +118,7 @@ class CapacidadAulaSuficienteHandlerTestCase(unittest.TestCase):
         context = {
             "nuevo_bloque": {
                 "id": "H1",
-                "aula_id": "AU003",  # Aula 201, capacidad 35
+                "aula_id": "AU004",  # Aula 201, capacidad 35
                 "asignatura_id": "A001",
                 "numero_estudiantes": 40,
                 "dia": "lunes",
@@ -247,7 +247,7 @@ class CapacidadAulaSuficienteHandlerTestCase(unittest.TestCase):
                 },
                 {
                     "id": "H2",
-                    "aula_id": "AU003",  # Aula 201, capacidad 35
+                    "aula_id": "AU004",  # Aula 201, capacidad 35
                     "asignatura_id": "A001",
                     "numero_estudiantes": 40,
                     "dia": "martes",
@@ -295,7 +295,7 @@ class CapacidadAulaSuficienteHandlerTestCase(unittest.TestCase):
         self.assertTrue(es_compatible)
 
         # Aula 201 (capacidad 35) NO debería ser compatible con 40 estudiantes
-        es_compatible = self.handler.es_aula_compatible_con_capacidad("AU003", 40, context)
+        es_compatible = self.handler.es_aula_compatible_con_capacidad("AU004", 40, context)
         self.assertFalse(es_compatible)
 
 if __name__ == '__main__':
