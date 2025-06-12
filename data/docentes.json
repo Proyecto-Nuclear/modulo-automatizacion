@@ -7,7 +7,8 @@
     "celular": "3201234567",
     "cedula_ciudadania": "1002003001",
     "area_especialidad": "Matemáticas",
-    "preferencias": ["mañana", "semestre_1"]
+    "preferencias": ["mañana", "semestre_1"],
+    "estado": "activo"
   },
   {
     "id": "D002",
@@ -17,7 +18,8 @@
     "celular": "3109876543",
     "cedula_ciudadania": "1002003002",
     "area_especialidad": "Física",
-    "preferencias": ["tarde", "laboratorio"]
+    "preferencias": ["tarde", "laboratorio"],
+    "estado": "activo"
   },
   {
     "id": "D003",
@@ -27,6 +29,7 @@
     "celular": "3151112222",
     "cedula_ciudadania": "1002003003",
     "area_especialidad": "Sistemas",
-    "preferencias": ["hibrida", "semestre_2"]
+    "preferencias": ["hibrida", "semestre_2"],
+    "estado": "activo"
   }
 ]

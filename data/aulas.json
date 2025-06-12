@@ -2,7 +2,7 @@
   {
     "id": "AU001",
     "nombre": "Aula 101",
-    "estado": "disponible",
+    "estado": "activo",
     "codigo": "A101",
     "descripcion": "Aula teórica principal",
     "tipo": "teorica",
@@ -13,7 +13,7 @@
   {
     "id": "AU002",
     "nombre": "Lab Computo 1",
-    "estado": "disponible",
+    "estado": "activo",
     "codigo": "L101",
     "descripcion": "Laboratorio de sistemas",
     "tipo": "laboratorio",
@@ -23,8 +23,19 @@
   },
   {
     "id": "AU003",
+    "nombre": "Lab Computo 2",
+    "estado": "activo",
+    "codigo": "L101",
+    "descripcion": "Laboratorio de sistemas",
+    "tipo": "laboratorio",
+    "capacidad": 40,
+    "id_sede": "S001",
+    "id_recursos": ["R003"]
+  },
+  {
+    "id": "AU004",
     "nombre": "Aula 201",
-    "estado": "disponible",
+    "estado": "activo",
     "codigo": "A201",
     "descripcion": "Aula híbrida para clases mixtas",
     "tipo": "hibrida",

@@ -2,28 +2,28 @@
   {
     "id": "R001",
     "nombre": "Video Beam",
-    "estado": "disponible",
+    "estado": "activo",
     "cantidad": 1,
     "descripcion": "Proyector multimedia"
   },
   {
     "id": "R002",
     "nombre": "Tablero Interactivo",
-    "estado": "disponible",
+    "estado": "activo",
     "cantidad": 1,
     "descripcion": "Tablero digital para presentaciones"
   },
   {
     "id": "R003",
     "nombre": "PCs",
-    "estado": "disponible",
+    "estado": "activo",
     "cantidad": 25,
     "descripcion": "Computadores para laboratorio"
   },
   {
     "id": "R004",
     "nombre": "Cámara web",
-    "estado": "disponible",
+    "estado": "activo",
     "cantidad": 1,
     "descripcion": "Cámara para clases híbridas"
   }

@@ -2,7 +2,7 @@
   {
     "id": "S001",
     "nombre": "Sede Principal",
-    "estado": "activa",
+    "estado": "activo",
     "direccion": "Calle 12 #34-56",
     "telefono": "6011112233",
     "cantidad_aulas": 6,
@@ -12,7 +12,7 @@
   {
     "id": "S002",
     "nombre": "Sede Nogales",
-    "estado": "activa",
+    "estado": "activo",
     "direccion": "Avenida 45 #67-89",
     "telefono": "6014445566",
     "cantidad_aulas": 4,

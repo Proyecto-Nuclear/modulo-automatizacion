@@ -2,7 +2,7 @@
   {
     "id": "A001",
     "nombre": "Álgebra Lineal",
-    "estado": "activa",
+    "estado": "activo",
     "duracion": "6 meses",
     "semestre": 1,
     "creditos": 4,
@@ -13,7 +13,7 @@
   {
     "id": "A002",
     "nombre": "Física I",
-    "estado": "activa",
+    "estado": "activo",
     "duracion": "6 meses",
     "semestre": 1,
     "creditos": 4,
@@ -24,7 +24,7 @@
   {
     "id": "A003",
     "nombre": "Estructura de Datos",
-    "estado": "activa",
+    "estado": "activo",
     "duracion": "3 meses",
     "semestre": 2,
     "creditos": 3,
@@ -35,12 +35,23 @@
   {
     "id": "A004",
     "nombre": "Algoritmos y Lógica Computacional",
-    "estado": "activa",
+    "estado": "activo",
     "duracion": "6 meses",
     "semestre": 1,
     "creditos": 3,
     "descripcion": "Fundamentos de algoritmos y lógica computacional",
     "requiereRecursos": ["R001", "R002", "R003"],
     "tipo": "laboratorio"
+  },
+  {
+    "id": "A005",
+    "nombre": "Calculo Diferencial e Integral",
+    "estado": "activo",
+    "duracion": "6 meses",
+    "semestre": 1,
+    "creditos": 4,
+    "descripcion": "Conceptos básicos de física mecánica",
+    "requiereRecursos": ["R003"],
+    "tipo": "bloqueo"
   }
 ]
