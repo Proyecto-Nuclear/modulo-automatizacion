@@ -6,11 +6,10 @@ from src.core.restrictions.aulas.aula_compatible_handler import AulaCompatibleHa
 from src.core.restrictions.aulas.aula_no_ocupada_doble_handler import AulaNoOcupadaDobleHandler
 from src.core.restrictions.aulas.capacidad_aula_suficiente_handler import CapacidadAulaSuficienteHandler
 
-
 class AulaDisponibleService:
     """
     Servicio para determinar qué aulas están disponibles para una asignatura
-    basándose en las restricciones definidas.
+    basándose en las restricciones definidas y en las programaciones existentes.
     """
 
     def __init__(self):
@@ -18,24 +17,18 @@ class AulaDisponibleService:
         self._setup_restriction_chain()
 
     def _get_data_dir(self) -> str:
-        """Obtiene el directorio de datos igual que en los tests."""
         base_dir = os.path.dirname(os.path.abspath(__file__))
         data_dir = os.path.abspath(os.path.join(base_dir, '../../data'))
         return data_dir
 
     def _setup_restriction_chain(self):
-        """Configura la cadena de restricciones."""
-        # Crear handlers
         self.capacidad_handler = CapacidadAulaSuficienteHandler()
         self.compatibilidad_handler = AulaCompatibleHandler()
         self.ocupacion_handler = AulaNoOcupadaDobleHandler()
-
-        # Configurar cadena
         self.capacidad_handler.set_next(self.compatibilidad_handler)
         self.compatibilidad_handler.set_next(self.ocupacion_handler)
 
     def _load_json_data(self, filename: str) -> List[Dict[str, Any]]:
-        """Carga datos desde archivo JSON."""
         try:
             filepath = os.path.join(self.data_dir, filename)
             with open(filepath, 'r', encoding='utf-8') as f:
@@ -54,26 +47,12 @@ class AulaDisponibleService:
             cantidad_estudiantes: int,
             semestre: int
     ) -> Dict[str, Any]:
-        """
-        Obtiene las aulas disponibles para una asignatura específica.
-
-        Args:
-            asignatura_id: ID de la asignatura
-            hora_inicio: Hora de inicio (formato HH:MM)
-            hora_fin: Hora de fin (formato HH:MM)
-            dia: Día de la semana
-            cantidad_estudiantes: Número de estudiantes
-            semestre: Semestre académico
-
-        Returns:
-            Dict con aulas disponibles y no disponibles con sus razones
-        """
         # Cargar datos
         aulas = self._load_json_data('aulas.json')
         asignaturas = self._load_json_data('asignaturas.json')
-        horarios_existentes = self._load_json_data('horarios.json')
         sedes = self._load_json_data('sedes.json')
         recursos = self._load_json_data('recursos.json')
+        programaciones = self._load_json_data('programaciones.json')
 
         # Buscar la asignatura
         asignatura = next((a for a in asignaturas if a['id'] == asignatura_id), None)
@@ -84,14 +63,15 @@ class AulaDisponibleService:
                 'aulas_no_disponibles': []
             }
 
-        # Filtrar horarios existentes para el mismo día y horario
-        horarios_conflicto = [
-            h for h in horarios_existentes
-            if h.get('dia') == dia and self._horarios_solapan(
-                {'start_time': hora_inicio, 'end_time': hora_fin},
-                {'start_time': h.get('start_time'), 'end_time': h.get('end_time')}
-            )
-        ]
+        # 1. Filtrar aulas ocupadas o reservadas en ese horario y día (sin importar semestre)
+        aulas_ocupadas = set()
+        for prog in programaciones:
+            if prog.get('estado') in ('reservado', 'ocupado') and prog.get('dia') == dia:
+                if self._horarios_solapan(
+                        {'start_time': hora_inicio, 'end_time': hora_fin},
+                        {'start_time': prog.get('hora_inicio'), 'end_time': prog.get('hora_fin')}
+                ):
+                    aulas_ocupadas.add(prog['aula_id'])
 
         aulas_disponibles = []
         aulas_no_disponibles = []
@@ -110,34 +90,28 @@ class AulaDisponibleService:
                 for rid in recursos_ids
             ]
 
-            # Crear contexto para las restricciones
+            # Aplicar restricciones de capacidad y compatibilidad
             context = {
                 'aula': aula,
                 'asignatura': asignatura,
                 'numero_estudiantes': cantidad_estudiantes,
                 'aulas': aulas,
-                'schedules': horarios_conflicto + [{
-                    'aula': aula['id'],
-                    'start_time': hora_inicio,
-                    'end_time': hora_fin,
-                    'dia': dia,
-                    'id': 'temp_schedule'
-                }],
+                'schedules': [],  # Ya no usamos horarios_conflicto
                 'dia': dia,
                 'hora_inicio': hora_inicio,
                 'hora_fin': hora_fin
             }
 
-            # Aplicar restricciones
             error = self.capacidad_handler.handle(context)
 
             if error is None:
-                # Verificar ocupación específica para esta aula
-                aula_ocupada = any(
-                    h.get('aula_id') == aula['id'] for h in horarios_conflicto
-                )
-
-                if not aula_ocupada:
+                if aula['id'] in aulas_ocupadas:
+                    aulas_no_disponibles.append({
+                        'id': aula['id'],
+                        'nombre': aula['nombre'],
+                        'razon': f"Aula ocupada o reservada en el horario {hora_inicio}-{hora_fin} el {dia}"
+                    })
+                else:
                     aulas_disponibles.append({
                         'id': aula['id'],
                         'nombre': aula['nombre'],
@@ -151,12 +125,6 @@ class AulaDisponibleService:
                             {'id': rid, 'nombre': rnombre}
                             for rid, rnombre in zip(recursos_ids, recursos_nombres)
                         ]
-                    })
-                else:
-                    aulas_no_disponibles.append({
-                        'id': aula['id'],
-                        'nombre': aula['nombre'],
-                        'razon': f'Aula ocupada en el horario {hora_inicio}-{hora_fin} el {dia}'
                     })
             else:
                 aulas_no_disponibles.append({
@@ -181,7 +149,8 @@ class AulaDisponibleService:
             'aulas_disponibles': aulas_disponibles,
             'aulas_no_disponibles': aulas_no_disponibles,
             'total_disponibles': len(aulas_disponibles),
-            'total_no_disponibles': len(aulas_no_disponibles)
+            'total_no_disponibles': len(aulas_no_disponibles),
+            'error': None
         }
 
     def _horarios_solapan(self, h1: Dict, h2: Dict) -> bool:
