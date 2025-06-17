@@ -72,6 +72,8 @@ class AulaDisponibleService:
         aulas = self._load_json_data('aulas.json')
         asignaturas = self._load_json_data('asignaturas.json')
         horarios_existentes = self._load_json_data('horarios.json')
+        sedes = self._load_json_data('sedes.json')
+        recursos = self._load_json_data('recursos.json')
 
         # Buscar la asignatura
         asignatura = next((a for a in asignaturas if a['id'] == asignatura_id), None)
@@ -98,6 +100,15 @@ class AulaDisponibleService:
         for aula in aulas:
             if aula.get('estado', '').lower() != 'activo':
                 continue
+
+            sede_id = aula.get('id_sede', '')
+            sede_nombre = next((s['nombre'] for s in sedes if s['id'] == sede_id), sede_id)
+
+            recursos_ids = aula.get('id_recursos', [])
+            recursos_nombres = [
+                next((r['nombre'] for r in recursos if r['id'] == rid), rid)
+                for rid in recursos_ids
+            ]
 
             # Crear contexto para las restricciones
             context = {
@@ -132,8 +143,14 @@ class AulaDisponibleService:
                         'nombre': aula['nombre'],
                         'tipo': aula.get('tipo', ''),
                         'capacidad': aula.get('capacidad', 0),
-                        'sede': aula.get('id_sede', ''),
-                        'recursos': aula.get('id_recursos', [])
+                        'sede': {
+                            'id': sede_id,
+                            'nombre': sede_nombre
+                        },
+                        'recursos': [
+                            {'id': rid, 'nombre': rnombre}
+                            for rid, rnombre in zip(recursos_ids, recursos_nombres)
+                        ]
                     })
                 else:
                     aulas_no_disponibles.append({
