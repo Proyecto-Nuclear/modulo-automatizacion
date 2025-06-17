@@ -32,14 +32,22 @@ class AulaDisponibleRequest(BaseModel):
             raise ValueError('La hora de fin debe ser posterior a la hora de inicio')
         return v
 
+class SedeInfo(BaseModel):
+    id: str
+    nombre: str
+
+class RecursoInfo(BaseModel):
+    id: str
+    nombre: str
+
 class AulaInfo(BaseModel):
     """Información de un aula."""
     id: str
     nombre: str
     tipo: str
     capacidad: int
-    sede: str
-    recursos: List[str] = []
+    sede: SedeInfo
+    recursos: List[RecursoInfo]
 
 class AulaNoDisponible(BaseModel):
     """Información de un aula no disponible."""
@@ -70,3 +78,15 @@ class AulaDisponibleResponse(BaseModel):
     total_disponibles: int
     total_no_disponibles: int
     error: Optional[str] = None
+
+class ReservaAulaRequest(BaseModel):
+    asignatura_id: str
+    aula_id: str
+    fecha: str
+    dia: str
+    hora_inicio: str
+    cantidad_estudiantes: int
+    semestre: int
+    hora_fin: str
+    docente_id: str = None
+    id_usuario: str
