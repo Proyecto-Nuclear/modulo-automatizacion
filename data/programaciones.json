@@ -49,5 +49,22 @@
     "semestre": 2,
     "horario_id": "H_PROG003_20250617_151757",
     "fecha_confirmacion": "2025-06-17T15:17:57.632793"
+  },
+  {
+    "id": "PROG004",
+    "aula_id": "AU004",
+    "docente_id": "D003",
+    "asignatura_id": "A003",
+    "fecha": "2024-07-22",
+    "hora_inicio": "10:00",
+    "hora_fin": "12:00",
+    "id_usuario": "USR001",
+    "fecha_creacion": "2025-06-17",
+    "hora_creacion": "17:14",
+    "estado": "ocupado",
+    "dia": "Miércoles",
+    "semestre": 2,
+    "horario_id": "H_PROG004_20250617_171514",
+    "fecha_confirmacion": "2025-06-17T17:15:14.297423"
   }
 ]
