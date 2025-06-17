@@ -1,0 +1,53 @@
+[
+  {
+    "id": "PROG001",
+    "aula_id": "AU001",
+    "docente_id": "D001",
+    "asignatura_id": "A001",
+    "fecha": "2024-07-22",
+    "hora_inicio": "07:00",
+    "hora_fin": "09:00",
+    "dia": "Lunes",
+    "id_usuario": "USR001",
+    "fecha_creacion": "2025-06-16",
+    "hora_creacion": "21:18",
+    "estado": "ocupado",
+    "semestre": 1,
+    "horario_id": "H_PROG001_20250617_151314",
+    "fecha_confirmacion": "2025-06-17T15:13:14.191244"
+  },
+  {
+    "id": "PROG002",
+    "aula_id": "AU003",
+    "docente_id": "D001",
+    "asignatura_id": "A001",
+    "fecha": "2024-07-22",
+    "hora_inicio": "07:00",
+    "hora_fin": "09:00",
+    "dia": "Martes",
+    "id_usuario": "USR001",
+    "fecha_creacion": "2025-06-16",
+    "hora_creacion": "21:44",
+    "estado": "ocupado",
+    "semestre": 1,
+    "horario_id": "H_PROG002_20250617_151314",
+    "fecha_confirmacion": "2025-06-17T15:13:14.192634"
+  },
+  {
+    "id": "PROG003",
+    "aula_id": "AU004",
+    "docente_id": "D003",
+    "asignatura_id": "A003",
+    "fecha": "2024-07-22",
+    "hora_inicio": "07:00",
+    "hora_fin": "09:00",
+    "dia": "Miércoles",
+    "id_usuario": "USR001",
+    "fecha_creacion": "2025-06-17",
+    "hora_creacion": "15:16",
+    "estado": "ocupado",
+    "semestre": 2,
+    "horario_id": "H_PROG003_20250617_151757",
+    "fecha_confirmacion": "2025-06-17T15:17:57.632793"
+  }
+]
