@@ -336,6 +336,19 @@ def listar_horarios_por_semestre(semestre: int):
         "horarios": horarios
     }
 
+@router.get("/datos")
+def obtener_catalogos():
+    """
+    Devuelve todos los datos de docentes, aulas, asignaturas, recursos y sedes.
+    """
+    return {
+        "asignaturas": load_json("asignaturas.json"),
+        "aulas": load_json("aulas.json"),
+        "docentes": load_json("docentes.json"),
+        "recursos": load_json("recursos.json"),
+        "sedes": load_json("sedes.json")
+    }
+
 @router.get("/health")
 def health_check():
     """Endpoint de salud para verificar que la API está funcionando."""
