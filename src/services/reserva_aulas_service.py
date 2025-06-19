@@ -82,6 +82,7 @@ class ReservaAulaService:
                 "estado": "reservado",
                 "dia": reserva.get("dia", ""),
                 "semestre": reserva.get("semestre", None),
+                "estudiantes": reserva.get("cantidad_estudiantes", 0),
             }
             nuevas_programaciones.append(nueva_programacion)
 
